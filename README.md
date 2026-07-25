@@ -1,10 +1,8 @@
-# SIA Dymka — Company Website & Google Play Developer Landing
+# SIA Dymka — Company Website
 
 Official website for **SIA Dymka** hosted on GitHub Pages for [dymka.org](https://dymka.org).
 
----
-
-## 👁️ Local Preview
+## Local Preview
 
 To preview the website locally on your computer before pushing to GitHub:
 
@@ -21,8 +19,6 @@ Then open your browser and navigate to:
 
 _(Press `Ctrl + C` in the terminal to stop the server)._
 
----
-
 ### Option 2: Open HTML File Directly
 
 You can also open `index.html` directly in your browser:
@@ -31,9 +27,7 @@ You can also open `index.html` directly in your browser:
 open index.html
 ```
 
----
-
-## 🔍 Code Linting & Formatting
+## Code Linting & Formatting
 
 You can run linting and code formatting checks locally using `npx`:
 
