@@ -1,0 +1,14 @@
+title: SIA Dymka
+email: info@dymka.org
+description: SIA Dymka is a Latvian software development studio specializing in native Android applications built with Kotlin and Jetpack Compose.
+url: 'https://dymka.org'
+
+# Jekyll Build Settings
+markdown: kramdown
+theme: null
+
+# Exclude list
+exclude:
+  - README.md
+  - .prettierrc
+  - .htmlhintrc

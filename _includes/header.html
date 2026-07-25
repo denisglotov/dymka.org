@@ -1,0 +1,37 @@
+<!-- Navigation Header -->
+<header class="header">
+  <div class="container nav-wrapper">
+    <a href="{{ '/' | relative_url }}" class="brand">
+      <img src="{{ '/assets/logo.png' | relative_url }}" alt="SIA Dymka Logo" class="brand-logo" />
+      <span>SIA Dymka</span>
+    </a>
+
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">☰</button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="{{ '/#apps' | relative_url }}" class="nav-link">Apps</a></li>
+      <li>
+        <a
+          href="{{ '/company.html' | relative_url }}"
+          class="nav-link{% if page.url == '/company.html' %} active{% endif %}"
+          >Company Info</a
+        >
+      </li>
+      <li>
+        <a
+          href="{{ '/privacy.html' | relative_url }}"
+          class="nav-link{% if page.url == '/privacy.html' %} active{% endif %}"
+          >Privacy Policy</a
+        >
+      </li>
+      <li>
+        <a
+          href="{{ '/terms.html' | relative_url }}"
+          class="nav-link{% if page.url == '/terms.html' %} active{% endif %}"
+          >Terms of Service</a
+        >
+      </li>
+      <li><a href="mailto:info@dymka.org" class="btn btn-outline">Contact Us</a></li>
+    </ul>
+  </div>
+</header>

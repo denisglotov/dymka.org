@@ -1,0 +1,68 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    {% if page.title %}{{ page.title }}{% else %}{{ site.title }} — Mobile Applications & Software
+    Development{% endif %}
+  </title>
+  <meta
+    name="description"
+    content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}"
+  />
+  <link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}" />
+
+  <!-- Open Graph / Social Messenger Previews -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ page.url | absolute_url }}" />
+  <meta
+    property="og:title"
+    content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"
+  />
+  <meta
+    property="og:description"
+    content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}"
+  />
+  <meta property="og:image" content="{{ '/assets/logo.png' | absolute_url }}" />
+
+  <!-- Twitter Card Previews -->
+  <meta name="twitter:card" content="summary" />
+  <meta
+    name="twitter:title"
+    content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}"
+  />
+  <meta
+    name="twitter:description"
+    content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}"
+  />
+  <meta name="twitter:image" content="{{ '/assets/logo.png' | absolute_url }}" />
+
+  <!-- Schema.org Organization Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "SIA Dymka",
+      "url": "https://dymka.org",
+      "logo": "https://dymka.org/assets/logo.png",
+      "email": "info@dymka.org",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kaivas iela 50 k-1 – 80D",
+        "addressLocality": "Rīga",
+        "postalCode": "LV-1021",
+        "addressCountry": "LV"
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}" />
+</head>
