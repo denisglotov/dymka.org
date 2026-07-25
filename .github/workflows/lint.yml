@@ -1,0 +1,27 @@
+name: Lint & Quality Checks
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  lint:
+    name: Lint HTML, CSS & Code Formatting
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Lint HTML Files
+        run: npx --yes htmlhint "**/*.html"
+
+      - name: Check Formatting & Syntax (Prettier)
+        run: npx --yes prettier --check "**/*.{html,css,js,md,json,yml}"

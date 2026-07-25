@@ -1,21 +1,22 @@
-/* Custom Design System for SIA Dymka (dymka.org) */
+/* Custom Design System for SIA Dymka (dymka.org) - Light Theme */
 :root {
-  --bg-dark: #090d16;
-  --bg-card: rgba(22, 28, 45, 0.7);
-  --bg-card-hover: rgba(30, 41, 59, 0.8);
-  --border-color: rgba(255, 255, 255, 0.08);
-  --border-highlight: rgba(148, 163, 184, 0.25);
-  
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
+  --bg-light: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --bg-nav: rgba(255, 255, 255, 0.88);
+
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-highlight: rgba(217, 119, 6, 0.3);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
   --text-muted: #64748b;
-  
-  --accent-cat-eye: #f59e0b;
-  --accent-glow: rgba(245, 158, 11, 0.15);
-  --accent-smoke: #cbd5e1;
+
+  --accent-amber: #d97706;
+  --accent-amber-dark: #b45309;
+  --accent-amber-light: rgba(217, 119, 6, 0.08);
   --accent-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  --smoke-gradient: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 100%);
-  
+
   --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
@@ -24,13 +25,15 @@
   --radius-lg: 24px;
   --radius-full: 9999px;
 
-  --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.37);
-  --shadow-glow: 0 0 25px rgba(245, 158, 11, 0.2);
+  --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
+  --shadow-hover: 0 20px 40px rgba(15, 23, 42, 0.09), 0 4px 12px rgba(217, 119, 6, 0.1);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Base resets */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -39,7 +42,7 @@
 html {
   scroll-behavior: smooth;
   font-family: var(--font-body);
-  background-color: var(--bg-dark);
+  background-color: var(--bg-light);
   color: var(--text-primary);
   line-height: 1.6;
 }
@@ -48,16 +51,21 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: 
-    radial-gradient(circle at 15% 15%, rgba(245, 158, 11, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 85% 60%, rgba(148, 163, 184, 0.05) 0%, transparent 50%),
-    var(--bg-dark);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(245, 158, 11, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 90% 50%, rgba(148, 163, 184, 0.08) 0%, transparent 50%),
+    var(--bg-light);
   background-attachment: fixed;
   overflow-x: hidden;
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
@@ -65,19 +73,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: var(--accent-cat-eye);
+  color: var(--accent-amber-dark);
   text-decoration: none;
   transition: var(--transition);
 }
 
 a:hover {
-  color: #fbbf24;
+  color: var(--accent-amber);
 }
 
 /* Container */
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -89,9 +97,9 @@ a:hover {
   z-index: 100;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  background: rgba(9, 13, 22, 0.85);
+  background: var(--bg-nav);
   border-bottom: 1px solid var(--border-color);
-  padding: 1rem 0;
+  padding: 0.85rem 0;
 }
 
 .nav-wrapper {
@@ -111,11 +119,11 @@ a:hover {
 }
 
 .brand-logo {
-  height: 42px;
-  width: auto;
+  height: 44px;
+  width: 44px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1px solid var(--border-highlight);
+  border: 1px solid var(--border-color);
 }
 
 .nav-links {
@@ -131,8 +139,9 @@ a:hover {
   font-size: 0.95rem;
 }
 
-.nav-link:hover, .nav-link.active {
-  color: var(--text-primary);
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent-amber-dark);
 }
 
 .btn {
@@ -152,25 +161,27 @@ a:hover {
 
 .btn-primary {
   background: var(--accent-gradient);
-  color: #000;
-  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
-  color: #000;
+  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.45);
+  color: #ffffff;
 }
 
 .btn-outline {
-  background: rgba(255, 255, 255, 0.05);
+  background: #ffffff;
   color: var(--text-primary);
-  border: 1px solid var(--border-highlight);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--accent-cat-eye);
+  background: var(--accent-amber-light);
+  border-color: var(--accent-amber);
+  color: var(--accent-amber-dark);
   transform: translateY(-2px);
 }
 
@@ -185,39 +196,37 @@ a:hover {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.35rem 1rem;
+  padding: 0.4rem 1.1rem;
   border-radius: var(--radius-full);
-  background: rgba(245, 158, 11, 0.1);
-  border: 1px solid rgba(245, 158, 11, 0.3);
-  color: var(--accent-cat-eye);
+  background: var(--accent-amber-light);
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  color: var(--accent-amber-dark);
   font-size: 0.85rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .hero-logo-img {
-  width: 140px;
-  height: 140px;
-  margin: 0 auto 1.5rem;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 1.75rem;
   display: block;
   border-radius: 50%;
-  box-shadow: var(--shadow-glow), 0 0 40px rgba(0,0,0,0.5);
-  border: 2px solid var(--border-highlight);
-  background: #1e293b;
-  padding: 4px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  border: 3px solid #ffffff;
+  background: #ffffff;
+  object-fit: cover;
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
   letter-spacing: -0.02em;
   margin-bottom: 1.25rem;
-  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text-primary);
 }
 
 .hero-subtitle {
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
   color: var(--text-secondary);
   max-width: 680px;
   margin: 0 auto 2.5rem;
@@ -260,72 +269,41 @@ a:hover {
 
 .card {
   background: var(--bg-card);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  padding: 2rem;
+  padding: 2.25rem;
   transition: var(--transition);
   box-shadow: var(--shadow-card);
-
 }
 
 .card:hover {
-  background: var(--bg-card-hover);
+  background: #ffffff;
   border-color: var(--border-highlight);
   transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
 }
 
 .card-icon {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: var(--radius-sm);
-  background: rgba(245, 158, 11, 0.1);
-  color: var(--accent-cat-eye);
+  background: var(--accent-amber-light);
+  color: var(--accent-amber-dark);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin-bottom: 1.25rem;
 }
 
 .card-title {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   margin-bottom: 0.75rem;
 }
 
 .card-text {
   color: var(--text-secondary);
-  font-size: 0.95rem;
-}
-
-/* Legal Info Spec Box */
-.legal-box {
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid var(--border-highlight);
-  border-radius: var(--radius-md);
-  padding: 2rem;
-  margin-top: 1rem;
-}
-
-.legal-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-}
-
-.legal-item-label {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-muted);
-  margin-bottom: 0.25rem;
-}
-
-.legal-item-val {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--text-primary);
+  font-size: 0.98rem;
 }
 
 /* App badge styling */
@@ -339,22 +317,27 @@ a:hover {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.6rem 1.2rem;
-  background: #000;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.65rem 1.25rem;
+  background: #0f172a;
+  border: 1px solid #1e293b;
   border-radius: var(--radius-sm);
-  color: #fff;
+  color: #ffffff;
   font-size: 0.85rem;
-  margin-top: 1.5rem;
+  margin-top: 1.75rem;
   align-self: flex-start;
 }
 
-/* Footer */
+.play-badge strong {
+  color: #ffffff;
+}
+
+/* Footer Section with Legal Details */
 .footer {
   margin-top: auto;
   border-top: 1px solid var(--border-color);
-  background: rgba(5, 8, 14, 0.95);
-  padding: 3rem 0 2rem;
+  background: #ffffff;
+  padding: 3.5rem 0 2rem;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.02);
 }
 
 .footer-content {
@@ -363,44 +346,47 @@ a:hover {
   align-items: center;
   flex-wrap: wrap;
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .footer-links {
   display: flex;
   gap: 1.5rem;
   list-style: none;
+  flex-wrap: wrap;
 }
 
 .footer-links a {
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
+  font-weight: 500;
 }
 
 .footer-links a:hover {
-  color: var(--text-primary);
+  color: var(--accent-amber-dark);
 }
 
 .footer-bottom {
   text-align: center;
   color: var(--text-muted);
-  font-size: 0.85rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding-top: 1.5rem;
+  font-size: 0.88rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.75rem;
 }
 
 /* Minimal legal document pages */
 .doc-page {
   padding: 4rem 0;
-  max-width: 800px;
+  max-width: 840px;
   margin: 0 auto;
 }
 
 .doc-card {
-  background: var(--bg-card);
+  background: #ffffff;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: 3rem 2.5rem;
+  box-shadow: var(--shadow-card);
 }
 
 .doc-title {
@@ -422,10 +408,11 @@ a:hover {
 .doc-section h2 {
   font-size: 1.35rem;
   margin-bottom: 0.75rem;
-  color: var(--accent-cat-eye);
+  color: var(--accent-amber-dark);
 }
 
-.doc-section p, .doc-section ul {
+.doc-section p,
+.doc-section ul {
   color: var(--text-secondary);
   font-size: 0.98rem;
   margin-bottom: 1rem;
@@ -445,6 +432,13 @@ a:hover {
   cursor: pointer;
 }
 
+@media (max-width: 868px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
@@ -455,10 +449,11 @@ a:hover {
     top: 100%;
     left: 0;
     width: 100%;
-    background: rgba(9, 13, 22, 0.98);
+    background: #ffffff;
     flex-direction: column;
     padding: 1.5rem;
     border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
   }
   .nav-links.open {
     display: flex;

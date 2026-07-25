@@ -1,158 +1,132 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SIA Dymka — Mobile Applications & Software Development</title>
-  <meta name="description" content="SIA Dymka is a Latvian software development company specializing in native Android applications distributed on Google Play.">
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIA Dymka — Mobile Applications & Software Development</title>
+    <meta
+      name="description"
+      content="SIA Dymka is a Latvian software development company specializing in native Android applications distributed on Google Play."
+    />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
 
-  <!-- Navigation Header -->
-  <header class="header">
-    <div class="container nav-wrapper">
-      <a href="index.html" class="brand">
-        <img src="assets/logo.png" alt="SIA Dymka Logo" class="brand-logo">
-        <span>SIA Dymka</span>
-      </a>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">☰</button>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Navigation Header -->
+    <header class="header">
+      <div class="container nav-wrapper">
+        <a href="index.html" class="brand">
+          <img src="assets/logo.png" alt="SIA Dymka Logo" class="brand-logo" />
+          <span>SIA Dymka</span>
+        </a>
 
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#apps" class="nav-link">Apps</a></li>
-        <li><a href="#about" class="nav-link">Company Info</a></li>
-        <li><a href="privacy.html" class="nav-link">Privacy Policy</a></li>
-        <li><a href="terms.html" class="nav-link">Terms of Service</a></li>
-        <li><a href="#contact" class="btn btn-outline">Contact Us</a></li>
-      </ul>
-    </div>
-  </header>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">☰</button>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <span class="hero-badge">Google Play Registered Developer</span>
-      <img src="assets/logo.png" alt="Dymka Logo" class="hero-logo-img">
-      <h1 class="hero-title">Crafting Modern Mobile Experiences</h1>
-      <p class="hero-subtitle">
-        SIA Dymka is an independent software studio based in Riga, Latvia. We create high-performance native Android applications designed for clarity, elegance, and user delight.
-      </p>
-      <div class="hero-actions">
-        <a href="#apps" class="btn btn-primary">Explore Our Apps</a>
-        <a href="#about" class="btn btn-outline">Company Details</a>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#apps" class="nav-link">Apps</a></li>
+          <li><a href="company.html" class="nav-link">Company Info</a></li>
+          <li><a href="privacy.html" class="nav-link">Privacy Policy</a></li>
+          <li><a href="terms.html" class="nav-link">Terms of Service</a></li>
+          <li><a href="mailto:info@dymka.org" class="btn btn-outline">Contact Us</a></li>
+        </ul>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Apps Section -->
-  <section class="section" id="apps">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Our Android Applications</h2>
-        <p class="section-desc">Built natively with modern Kotlin and Jetpack Compose for peak stability and fluid user experience.</p>
-      </div>
-
-      <div class="grid">
-        <!-- Application Card 1 -->
-        <div class="card app-card">
-          <div>
-            <div class="card-icon">📱</div>
-            <h3 class="card-title">Mobile Utilities & Tools</h3>
-            <p class="card-text">
-              Intuitive, privacy-respecting Android applications crafted to simplify daily workflows and productivity. Distributed globally on the Google Play Store.
-            </p>
-          </div>
-          <div class="play-badge">
-            <span>GET IT ON</span>
-            <strong>Google Play</strong>
-          </div>
-        </div>
-
-        <!-- Application Card 2 -->
-        <div class="card app-card">
-          <div>
-            <div class="card-icon">⚡</div>
-            <h3 class="card-title">Performance-Focused Software</h3>
-            <p class="card-text">
-              Lightweight, fast, and optimized mobile solutions prioritizing security, efficiency, and minimal battery consumption.
-            </p>
-          </div>
-          <div class="play-badge">
-            <span>AVAILABLE ON</span>
-            <strong>Google Play</strong>
-          </div>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <img src="assets/logo.png" alt="Dymka Logo" class="hero-logo-img" />
+        <h1 class="hero-title">Crafting Modern Mobile Experiences</h1>
+        <p class="hero-subtitle">
+          SIA Dymka is an independent software studio based in Riga, Latvia. We create
+          high-performance native Android applications designed for clarity, elegance, and user
+          delight.
+        </p>
+        <div class="hero-actions">
+          <a href="#apps" class="btn btn-primary">Explore Our Apps</a>
+          <a href="company.html" class="btn btn-outline">Company Details</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About / Company Info Section -->
-  <section class="section" id="about">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Company Registration Details</h2>
-        <p class="section-desc">SIA Dymka is a legally registered business entity in the Republic of Latvia (EU).</p>
-      </div>
+    <!-- Apps Section -->
+    <section class="section" id="apps">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Our Android Applications</h2>
+          <p class="section-desc">
+            Built natively with modern Kotlin and Jetpack Compose for peak stability and fluid user
+            experience.
+          </p>
+        </div>
 
-      <div class="legal-box" id="contact">
-        <div class="legal-grid">
-          <div>
-            <div class="legal-item-label">Legal Entity Name</div>
-            <div class="legal-item-val">SIA Dymka</div>
+        <div class="grid">
+          <!-- Application Card 1 -->
+          <div class="card app-card">
+            <div>
+              <div class="card-icon">📱</div>
+              <h3 class="card-title">Mobile Utilities & Tools</h3>
+              <p class="card-text">
+                Intuitive, privacy-respecting Android applications crafted to simplify daily
+                workflows and productivity. Distributed globally on the Google Play Store.
+              </p>
+            </div>
+            <div class="play-badge">
+              <span>GET IT ON</span>
+              <strong>Google Play</strong>
+            </div>
           </div>
 
-          <div>
-            <div class="legal-item-label">Registration Number (Reģ. Nr.)</div>
-            <div class="legal-item-val">50203521431</div>
-          </div>
-
-          <div>
-            <div class="legal-item-label">Registered Legal Address</div>
-            <div class="legal-item-val">Kaivas iela 50 k-1 – 80D, Rīga, LV-1021, Latvia</div>
-          </div>
-
-          <div>
-            <div class="legal-item-label">Official Contact Email</div>
-            <div class="legal-item-val">
-              <a href="mailto:info@dymka.org">info@dymka.org</a>
+          <!-- Application Card 2 -->
+          <div class="card app-card">
+            <div>
+              <div class="card-icon">⚡</div>
+              <h3 class="card-title">Performance-Focused Software</h3>
+              <p class="card-text">
+                Lightweight, fast, and optimized mobile solutions prioritizing security, efficiency,
+                and minimal battery consumption.
+              </p>
+            </div>
+            <div class="play-badge">
+              <span>AVAILABLE ON</span>
+              <strong>Google Play</strong>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-content">
         <div class="brand">
-          <img src="assets/logo.png" alt="SIA Dymka Logo" class="brand-logo">
+          <img src="assets/logo.png" alt="SIA Dymka Logo" class="brand-logo" />
           <span>SIA Dymka</span>
         </div>
 
         <ul class="footer-links">
+          <li><a href="company.html">Company Info</a></li>
           <li><a href="privacy.html">Privacy Policy</a></li>
           <li><a href="terms.html">Terms of Service</a></li>
           <li><a href="mailto:info@dymka.org">Support</a></li>
         </ul>
       </div>
 
-      <div class="footer-bottom">
-        <p>&copy; <span id="year">2026</span> SIA Dymka (Reg. Nr. 50203521431). All rights reserved.</p>
+      <div class="container footer-bottom">
+        <p>&copy; <span id="year">2026</span> SIA Dymka. All rights reserved.</p>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script src="js/main.js"></script>
-</body>
+    <script src="js/main.js"></script>
+  </body>
 </html>
