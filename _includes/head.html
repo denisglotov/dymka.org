@@ -9,6 +9,7 @@
     name="description"
     content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}"
   />
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
   <link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}" />
 
   <!-- Open Graph / Social Messenger Previews -->
@@ -42,8 +43,8 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "SIA Dymka",
-      "url": "https://dymka.org",
-      "logo": "https://dymka.org/assets/logo.png",
+      "url": "https://www.dymka.org",
+      "logo": "https://www.dymka.org/assets/logo.png",
       "email": "info@dymka.org",
       "address": {
         "@type": "PostalAddress",
