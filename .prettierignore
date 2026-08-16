@@ -3,3 +3,6 @@ node_modules/
 biomass/mq_js_bundle.js
 biomass/biomass.wasm
 biomass/assets/
+foxandhounds/mq_js_bundle.js
+foxandhounds/fox-and-hounds.wasm
+foxandhounds/assets/

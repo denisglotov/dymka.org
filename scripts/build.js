@@ -95,8 +95,17 @@ async function buildSite() {
     console.log(`  ✓ Rendered ${pageName}`);
   }
 
-  // Copy assets, css, js, biomass, robots.txt, sitemap.xml, CNAME to _site/
-  const staticItems = ['assets', 'css', 'js', 'biomass', 'robots.txt', 'sitemap.xml', 'CNAME'];
+  // Copy assets, css, js, biomass, foxandhounds, robots.txt, sitemap.xml, CNAME to _site/
+  const staticItems = [
+    'assets',
+    'css',
+    'js',
+    'biomass',
+    'foxandhounds',
+    'robots.txt',
+    'sitemap.xml',
+    'CNAME',
+  ];
   for (const item of staticItems) {
     const srcPath = path.join(ROOT_DIR, item);
     const destPath = path.join(OUT_DIR, item);
