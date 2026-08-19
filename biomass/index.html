@@ -9,6 +9,32 @@
       name="description"
       content="Biomass turn-based containment strategy puzzle game written in Rust & Macroquad, compiled to WebAssembly."
     />
+    <meta name="theme-color" content="#07090E" />
+
+    <!-- Open Graph / Facebook / Discord / Telegram / Slack -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Biomass - Sci-Fi Containment Protocol" />
+    <meta
+      property="og:description"
+      content="Biomass turn-based containment strategy puzzle game written in Rust & Macroquad, compiled to WebAssembly."
+    />
+    <meta property="og:image" content="banner.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1488" />
+    <meta property="og:image:height" content="720" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Biomass - Sci-Fi Containment Protocol" />
+    <meta
+      name="twitter:description"
+      content="Biomass turn-based containment strategy puzzle game written in Rust & Macroquad, compiled to WebAssembly."
+    />
+    <meta name="twitter:image" content="banner.png" />
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" href="icon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="icon.png" />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -212,8 +238,27 @@
           version: 1,
           name: 'biomass_storage',
         });
+        miniquad_add_plugin({
+          register_plugin: function (env_obj) {
+            env_obj.env.biomass_get_system_language = function () {
+              const lang = (
+                navigator.language ||
+                (navigator.languages && navigator.languages[0]) ||
+                'en'
+              ).toLowerCase();
+              if (lang.startsWith('ru')) return 1;
+              if (lang.startsWith('es')) return 2;
+              if (lang.startsWith('de')) return 3;
+              if (lang.startsWith('fr')) return 4;
+              return 0; // Default en-US
+            };
+          },
+          version: 1,
+          name: 'biomass_locale',
+        });
         load('biomass.wasm?t=' + Date.now());
       };
+
       document.head.appendChild(script);
     </script>
   </body>
