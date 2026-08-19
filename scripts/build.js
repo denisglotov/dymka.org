@@ -58,7 +58,14 @@ async function buildSite() {
   }
 
   // List of HTML pages to process
-  const pages = ['index.html', 'company.html', 'privacy.html', 'terms.html'];
+  const pages = [
+    'index.html',
+    'company.html',
+    'privacy.html',
+    'terms.html',
+    'foxandhounds/index.html',
+    'biomass/index.html',
+  ];
 
   for (const pageName of pages) {
     const pagePath = path.join(ROOT_DIR, pageName);
@@ -91,17 +98,21 @@ async function buildSite() {
     }
 
     const outPath = path.join(OUT_DIR, pageName);
+    const outDirName = path.dirname(outPath);
+    if (!fs.existsSync(outDirName)) {
+      fs.mkdirSync(outDirName, { recursive: true });
+    }
     fs.writeFileSync(outPath, finalHtml, 'utf8');
     console.log(`  ✓ Rendered ${pageName}`);
   }
 
-  // Copy assets, css, js, biomass, foxandhounds, robots.txt, sitemap.xml, CNAME to _site/
+  // Copy assets, css, js, biomass/app, foxandhounds/app, robots.txt, sitemap.xml, CNAME to _site/
   const staticItems = [
     'assets',
     'css',
     'js',
-    'biomass',
-    'foxandhounds',
+    'biomass/app',
+    'foxandhounds/app',
     'robots.txt',
     'sitemap.xml',
     'CNAME',

@@ -66,4 +66,28 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}" />
+
+  <!-- Google tag (gtag.js) with Consent Mode -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    // Default consent to denied
+    if (localStorage.getItem('cookieConsent') === 'accepted') {
+      gtag('consent', 'default', {
+        analytics_storage: 'granted',
+      });
+    } else {
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+      });
+    }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PRE6EPJYLM"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-PRE6EPJYLM');
+  </script>
 </head>
