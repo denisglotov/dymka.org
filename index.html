@@ -24,10 +24,9 @@ description: SIA Dymka is a Latvian software development company specializing in
 <section class="section" id="apps">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">Our Android Applications</h2>
+      <h2 class="section-title">Our Applications &amp; Games</h2>
       <p class="section-desc">
-        Built natively with modern Kotlin and Jetpack Compose for peak stability and fluid user
-        experience.
+        Thoughtfully crafted with care for performance, elegance, and delightful user experiences.
       </p>
     </div>
 
@@ -39,39 +38,132 @@ description: SIA Dymka is a Latvian software development company specializing in
           <h3 class="card-title">Just IP Info</h3>
           <p class="card-text">
             A minimalistic, privacy-first Android application that inspects IP information from
-            multiple network providers. Features timestamped logging, Jetpack Compose UI, and full
-            dark/light theme support.
+            multiple network providers. Features timestamped logging, a clean modern interface, and
+            full dark/light theme support.
           </p>
         </div>
         <div class="card-actions">
-          <div class="play-badge">
-            <span>COMING SOON ON</span>
-            <strong>Google Play</strong>
-          </div>
+          <a
+            href="https://play.google.com/store/apps/details?id=org.dymka.justipinfo"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="app-btn app-btn-play"
+          >
+            <svg class="app-btn-icon" aria-hidden="true"><use href="#icon-google-play"></use></svg>
+            <span class="app-btn-text">
+              <span class="app-btn-sub">AVAILABLE ON</span>
+              <span class="app-btn-title">Google Play</span>
+            </span>
+          </a>
           <a
             href="https://github.com/denisglotov/just-ipinfo-app"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn btn-outline btn-sm"
+            class="app-btn app-btn-github"
           >
-            GitHub Source ↗
+            <svg class="app-btn-icon" aria-hidden="true"><use href="#icon-github"></use></svg>
+            <span class="app-btn-text">
+              <span class="app-btn-sub">OPEN SOURCE</span>
+              <span class="app-btn-title">GitHub ↗</span>
+            </span>
           </a>
         </div>
       </div>
 
-      <!-- Application Card 2 -->
+      <!-- Application Card 2: Biomass -->
       <div class="card app-card">
         <div>
-          <div class="card-icon">⚡</div>
-          <h3 class="card-title">Performance-Focused Software</h3>
+          <div class="card-icon">☣️</div>
+          <h3 class="card-title">Biomass</h3>
           <p class="card-text">
-            Lightweight, fast, and optimized mobile solutions prioritizing security, efficiency, and
-            minimal battery consumption.
+            A tactical turn-based containment strategy puzzle game. Command facility containment
+            forces to trap, isolate, and neutralize expanding sci-fi bio-hazards before grid
+            capacity limits are breached.
           </p>
         </div>
-        <div class="play-badge">
-          <span>AVAILABLE ON</span>
-          <strong>Google Play</strong>
+        <div class="card-actions">
+          <a
+            href="https://play.google.com/store/apps/details?id=org.dymka.biomass"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="app-btn app-btn-play"
+          >
+            <svg class="app-btn-icon" aria-hidden="true"><use href="#icon-google-play"></use></svg>
+            <span class="app-btn-text">
+              <span class="app-btn-sub">AVAILABLE ON</span>
+              <span class="app-btn-title">Google Play</span>
+            </span>
+          </a>
+          <a href="{{ '/biomass/' | relative_url }}" class="app-btn app-btn-web">
+            <svg class="app-btn-icon" aria-hidden="true"><use href="#icon-web"></use></svg>
+            <span class="app-btn-text">
+              <span class="app-btn-sub">PLAY IN BROWSER</span>
+              <span class="app-btn-title">Web Version ↗</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Application Card 3: Fox and Hounds -->
+      <div class="card app-card">
+        <div>
+          <div class="card-icon">🦊</div>
+          <h3 class="card-title">Fox and Hounds</h3>
+          <p class="card-text">
+            A turn-based asymmetric pursuit-evasion puzzle game played on graph topologies.
+            Outmaneuver the hound pack as the cunning fox to reach sanctuary, or coordinate the
+            hounds to encircle and trap the fox.
+          </p>
+        </div>
+        <div class="card-actions">
+          <div class="app-btn app-btn-play app-btn-disabled" aria-disabled="true">
+            <svg class="app-btn-icon" aria-hidden="true"><use href="#icon-google-play"></use></svg>
+            <span class="app-btn-text">
+              <span class="app-btn-sub">COMING SOON ON</span>
+              <span class="app-btn-title">Google Play</span>
+            </span>
+          </div>
+          <a href="{{ '/foxandhounds/' | relative_url }}" class="app-btn app-btn-web">
+            <svg class="app-btn-icon" aria-hidden="true"><use href="#icon-web"></use></svg>
+            <span class="app-btn-text">
+              <span class="app-btn-sub">PLAY IN BROWSER</span>
+              <span class="app-btn-title">Web Version ↗</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Application Card 4: Just Notify -->
+      <div class="card app-card">
+        <div>
+          <div class="card-icon">🔔</div>
+          <h3 class="card-title">Just Notify</h3>
+          <p class="card-text">
+            A distributed, peer-to-peer Android notification system powered by IPFS and libp2p.
+            Delivers resilient, decentralized alert broadcasting and messaging with zero central
+            servers.
+          </p>
+        </div>
+        <div class="card-actions">
+          <div class="app-btn app-btn-play app-btn-disabled" aria-disabled="true">
+            <svg class="app-btn-icon" aria-hidden="true"><use href="#icon-google-play"></use></svg>
+            <span class="app-btn-text">
+              <span class="app-btn-sub">COMING SOON ON</span>
+              <span class="app-btn-title">Google Play</span>
+            </span>
+          </div>
+          <a
+            href="https://github.com/denisglotov/just-notify-server"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="app-btn app-btn-github"
+          >
+            <svg class="app-btn-icon" aria-hidden="true"><use href="#icon-github"></use></svg>
+            <span class="app-btn-text">
+              <span class="app-btn-sub">OPEN SOURCE</span>
+              <span class="app-btn-title">GitHub ↗</span>
+            </span>
+          </a>
         </div>
       </div>
     </div>

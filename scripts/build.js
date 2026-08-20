@@ -74,8 +74,13 @@ async function buildSite() {
     const rawContent = fs.readFileSync(pagePath, 'utf8');
     const parsed = fm(rawContent);
     const pageAttr = parsed.attributes || {};
-    pageAttr.url = '/' + pageName;
-    if (pageName === 'index.html') pageAttr.url = '/';
+    if (pageName === 'index.html') {
+      pageAttr.url = '/';
+    } else if (pageName.endsWith('/index.html')) {
+      pageAttr.url = '/' + pageName.replace('index.html', '');
+    } else {
+      pageAttr.url = '/' + pageName;
+    }
 
     const context = {
       site: siteConfig,
