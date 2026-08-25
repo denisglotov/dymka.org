@@ -6,4 +6,10 @@ public/biomass/assets/
 public/foxandhounds/mq_js_bundle.js
 public/foxandhounds/fox-and-hounds.wasm
 public/foxandhounds/assets/
+public/parking-escape/mq_js_bundle.js
+public/parking-escape/parking-escape.wasm
+public/parking-escape/assets/
+public/parking-escape/app/mq_js_bundle.js
+public/parking-escape/app/parking-escape.wasm
+public/parking-escape/app/assets/
 
