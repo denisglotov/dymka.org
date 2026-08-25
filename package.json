@@ -6,12 +6,16 @@
   "scripts": {
     "build": "node scripts/build.js",
     "preview": "node scripts/build.js && npx serve _site -p 8000",
-    "lint": "npx htmlhint \"**/*.html\" && npx prettier --check \"**/*.{html,css,js,md,json,yml}\"",
-    "format": "npx prettier --write \"**/*.{html,css,js,md,json,yml}\""
+    "lint": "htmlhint \"**/*.html\" && prettier --check \"**/*.{html,css,js,md,json,yml}\"",
+    "format": "prettier --write \"**/*.{html,css,js,md,json,yml}\""
   },
   "dependencies": {
     "front-matter": "^4.0.2",
     "js-yaml": "^4.1.0",
     "liquidjs": "^10.10.0"
+  },
+  "devDependencies": {
+    "htmlhint": "^1.9.2",
+    "prettier": "^3.9.6"
   }
 }
