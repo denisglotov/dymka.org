@@ -1,4 +1,4 @@
-// Main JavaScript for SIA Dymka (dymka.org)
+// Main JavaScript for Dymka company (dymka.org)
 document.addEventListener('DOMContentLoaded', () => {
   // Update copyright year
   const yearElement = document.getElementById('year');

@@ -1,6 +1,6 @@
-# SIA Dymka — Company Website
+# Dymka — Company Website
 
-Official website for **SIA Dymka** built with **Jekyll** templates and hosted on GitHub Pages for [dymka.org](https://dymka.org).
+Official website for **Dymka** built with **Jekyll** templates and hosted on GitHub Pages for [dymka.org](https://dymka.org).
 
 ## 👁️ Local Preview
 

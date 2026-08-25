@@ -1,4 +1,4 @@
-/* Custom Design System for SIA Dymka (dymka.org) - Light Theme */
+/* Custom Design System for Dymka company (dymka.org) - Light Theme */
 :root {
   --bg-light: #f8fafc;
   --bg-card: #ffffff;
@@ -565,12 +565,13 @@ a.app-btn-github:hover .app-btn-icon {
 
 .doc-title {
   font-size: 2.25rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 .doc-date {
   color: var(--text-muted);
   font-size: 0.9rem;
+  margin-top: -1.25rem;
   margin-bottom: 2rem;
   display: block;
 }
