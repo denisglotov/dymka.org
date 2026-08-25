@@ -3,9 +3,15 @@ node_modules/
 public/biomass/mq_js_bundle.js
 public/biomass/biomass.wasm
 public/biomass/assets/
+public/biomass/app/mq_js_bundle.js
+public/biomass/app/biomass.wasm
+public/biomass/app/assets/
 public/foxandhounds/mq_js_bundle.js
 public/foxandhounds/fox-and-hounds.wasm
 public/foxandhounds/assets/
+public/foxandhounds/app/mq_js_bundle.js
+public/foxandhounds/app/fox-and-hounds.wasm
+public/foxandhounds/app/assets/
 public/parking-escape/mq_js_bundle.js
 public/parking-escape/parking-escape.wasm
 public/parking-escape/assets/

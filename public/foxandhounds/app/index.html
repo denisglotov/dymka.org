@@ -55,8 +55,10 @@
 
     <!-- Icons & Manifest -->
     <link rel="image_src" href="icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="icon.png" />
-    <link rel="apple-touch-icon" sizes="512x512" href="icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png" />
     <link rel="manifest" href="manifest.json" />
 
     <style>
@@ -277,6 +279,9 @@
               if (lang.startsWith('es')) return 2;
               if (lang.startsWith('de')) return 3;
               if (lang.startsWith('fr')) return 4;
+              if (lang.startsWith('ja') || lang.startsWith('jp')) return 5;
+              if (lang.startsWith('zh') || lang.startsWith('cn')) return 6;
+              if (lang.startsWith('ko') || lang.startsWith('kr')) return 7;
               return 0; // Default en-US
             };
           },
