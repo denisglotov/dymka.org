@@ -5,12 +5,17 @@ const fm = require('front-matter');
 const yaml = require('js-yaml');
 
 const ROOT_DIR = path.resolve(__dirname, '..');
+const SRC_DIR = path.join(ROOT_DIR, 'src');
+const PUBLIC_DIR = path.join(ROOT_DIR, 'public');
 const OUT_DIR = path.join(ROOT_DIR, '_site');
 
 // 1. Load _config.yml
 let siteConfig = {};
 try {
-  const configStr = fs.readFileSync(path.join(ROOT_DIR, '_config.yml'), 'utf8');
+  const configPath = fs.existsSync(path.join(SRC_DIR, '_config.yml'))
+    ? path.join(SRC_DIR, '_config.yml')
+    : path.join(ROOT_DIR, '_config.yml');
+  const configStr = fs.readFileSync(configPath, 'utf8');
   siteConfig = yaml.load(configStr) || {};
 } catch (e) {
   console.warn('Warning: Could not load _config.yml', e.message);
@@ -18,7 +23,7 @@ try {
 
 // 2. Configure LiquidJS Engine with Jekyll filters
 const engine = new Liquid({
-  root: [path.join(ROOT_DIR, '_includes'), path.join(ROOT_DIR, '_layouts')],
+  root: [path.join(SRC_DIR, '_includes'), path.join(SRC_DIR, '_layouts')],
   extname: '.html',
   dynamicPartials: false,
 });
@@ -50,36 +55,72 @@ function copyRecursive(src, dest) {
   }
 }
 
+// Helper to recursively find all HTML template files in src/
+function findHtmlPages(dir, baseDir = dir) {
+  const pages = [];
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      if (
+        entry.name === '_includes' ||
+        entry.name === '_layouts' ||
+        entry.name === 'node_modules'
+      ) {
+        continue;
+      }
+      pages.push(...findHtmlPages(fullPath, baseDir));
+    } else if (entry.isFile() && entry.name.endsWith('.html')) {
+      const relPath = path.relative(baseDir, fullPath);
+      pages.push(relPath);
+    }
+  }
+
+  return pages;
+}
+
 async function buildSite() {
   console.log('⚡ Building static site with LiquidJS...');
 
-  if (!fs.existsSync(OUT_DIR)) {
-    fs.mkdirSync(OUT_DIR, { recursive: true });
+  // Reset output directory
+  if (fs.existsSync(OUT_DIR)) {
+    fs.rmSync(OUT_DIR, { recursive: true, force: true });
+  }
+  fs.mkdirSync(OUT_DIR, { recursive: true });
+
+  // 3. Copy all raw static files from public/ into _site/
+  if (fs.existsSync(PUBLIC_DIR)) {
+    for (const item of fs.readdirSync(PUBLIC_DIR)) {
+      const srcPath = path.join(PUBLIC_DIR, item);
+      const destPath = path.join(OUT_DIR, item);
+      copyRecursive(srcPath, destPath);
+    }
   }
 
-  // List of HTML pages to process
-  const pages = [
-    'index.html',
-    'company.html',
-    'privacy.html',
-    'terms.html',
-    'foxandhounds/index.html',
-    'biomass/index.html',
-  ];
+  // 4. Copy CSS and JS from src/ into _site/
+  const srcAssets = ['css', 'js'];
+  for (const item of srcAssets) {
+    const srcPath = path.join(SRC_DIR, item);
+    const destPath = path.join(OUT_DIR, item);
+    copyRecursive(srcPath, destPath);
+  }
 
-  for (const pageName of pages) {
-    const pagePath = path.join(ROOT_DIR, pageName);
-    if (!fs.existsSync(pagePath)) continue;
+  // 5. Discover and render HTML pages in src/
+  const pages = findHtmlPages(SRC_DIR);
 
+  for (const pageRelPath of pages) {
+    const pagePath = path.join(SRC_DIR, pageRelPath);
     const rawContent = fs.readFileSync(pagePath, 'utf8');
     const parsed = fm(rawContent);
     const pageAttr = parsed.attributes || {};
-    if (pageName === 'index.html') {
+
+    if (pageRelPath === 'index.html') {
       pageAttr.url = '/';
-    } else if (pageName.endsWith('/index.html')) {
-      pageAttr.url = '/' + pageName.replace('index.html', '');
+    } else if (pageRelPath.endsWith('/index.html') || pageRelPath.endsWith('\\index.html')) {
+      pageAttr.url = '/' + pageRelPath.replace(/\\/g, '/').replace(/index\.html$/, '');
     } else {
-      pageAttr.url = '/' + pageName;
+      pageAttr.url = '/' + pageRelPath.replace(/\\/g, '/');
     }
 
     const context = {
@@ -88,44 +129,27 @@ async function buildSite() {
       content: parsed.body,
     };
 
-    // Render body through liquid
+    // Render body through Liquid
     const renderedBody = await engine.parseAndRender(parsed.body, context);
     context.content = renderedBody;
 
-    // Render inside default layout if specified
+    // Render inside layout if specified
     let finalHtml = renderedBody;
     const layoutName = pageAttr.layout || 'default';
-    const layoutPath = path.join(ROOT_DIR, '_layouts', `${layoutName}.html`);
+    const layoutPath = path.join(SRC_DIR, '_layouts', `${layoutName}.html`);
 
     if (fs.existsSync(layoutPath)) {
       const layoutContent = fs.readFileSync(layoutPath, 'utf8');
       finalHtml = await engine.parseAndRender(layoutContent, context);
     }
 
-    const outPath = path.join(OUT_DIR, pageName);
+    const outPath = path.join(OUT_DIR, pageRelPath);
     const outDirName = path.dirname(outPath);
     if (!fs.existsSync(outDirName)) {
       fs.mkdirSync(outDirName, { recursive: true });
     }
     fs.writeFileSync(outPath, finalHtml, 'utf8');
-    console.log(`  ✓ Rendered ${pageName}`);
-  }
-
-  // Copy assets, css, js, biomass/app, foxandhounds/app, robots.txt, sitemap.xml, CNAME to _site/
-  const staticItems = [
-    'assets',
-    'css',
-    'js',
-    'biomass/app',
-    'foxandhounds/app',
-    'robots.txt',
-    'sitemap.xml',
-    'CNAME',
-  ];
-  for (const item of staticItems) {
-    const srcPath = path.join(ROOT_DIR, item);
-    const destPath = path.join(OUT_DIR, item);
-    copyRecursive(srcPath, destPath);
+    console.log(`  ✓ Rendered ${pageRelPath}`);
   }
 
   console.log('✨ Build complete! Output folder: _site/\n');

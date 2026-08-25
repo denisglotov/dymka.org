@@ -12,3 +12,8 @@ exclude:
   - README.md
   - .prettierrc
   - .htmlhintrc
+  - package.json
+  - package-lock.json
+  - scripts
+  - node_modules
+  - src

@@ -1,8 +1,9 @@
 _site/
 node_modules/
-biomass/mq_js_bundle.js
-biomass/biomass.wasm
-biomass/assets/
-foxandhounds/mq_js_bundle.js
-foxandhounds/fox-and-hounds.wasm
-foxandhounds/assets/
+public/biomass/mq_js_bundle.js
+public/biomass/biomass.wasm
+public/biomass/assets/
+public/foxandhounds/mq_js_bundle.js
+public/foxandhounds/fox-and-hounds.wasm
+public/foxandhounds/assets/
+

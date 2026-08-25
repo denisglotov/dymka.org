@@ -1,10 +1,17 @@
 # Dymka — Company Website
 
-Official website for **Dymka** built with **Jekyll** templates and hosted on GitHub Pages for [dymka.org](https://dymka.org).
+Official website for **Dymka** hosted on GitHub Pages for [dymka.org](https://dymka.org).
+
+## 📁 Project Structure
+
+- **`src/`**: Source files and templates (`_includes/`, `_layouts/`, `css/`, `js/`, and HTML pages).
+- **`public/`**: Raw static assets copied verbatim to the build output (`CNAME`, `robots.txt`, `sitemap.xml`, `assets/`, sub-apps like `biomass/app/` and `foxandhounds/app/`).
+- **`scripts/`**: Node.js build scripts.
+- **`_site/`**: Generated static output ready for production deployment (git-ignored).
 
 ## 👁️ Local Preview
 
-You can preview the Jekyll website locally using Node.js:
+You can preview the website locally using Node.js:
 
 ### 1. Install dependencies (first time only):
 
@@ -38,3 +45,7 @@ Auto-format all code files:
 ```bash
 npm run format
 ```
+
+## 🚀 Deployment
+
+The site is automatically built and deployed to GitHub Pages on every push to `master` via GitHub Actions (`.github/workflows/deploy.yml`). Only the compiled static output in `_site/` is published.
