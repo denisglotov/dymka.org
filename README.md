@@ -5,7 +5,8 @@ Official website for **Dymka** hosted on GitHub Pages for [dymka.org](https://dy
 ## 📁 Project Structure
 
 - **`src/`**: Source files and templates (`_includes/`, `_layouts/`, `css/`, `js/`, and HTML pages).
-- **`public/`**: Raw static assets copied verbatim to the build output (`CNAME`, `robots.txt`, `sitemap.xml`, `assets/`, sub-apps like `biomass/app/`, `foxandhounds/app/`, and `parking-escape/app/`).
+- **`public/`**: Raw static assets copied verbatim to the build output (`CNAME`, `robots.txt`,
+  `sitemap.xml`, `assets/`, sub-apps like `biomass/app/`).
 - **`scripts/`**: Node.js build scripts.
 - **`_site/`**: Generated static output ready for production deployment (git-ignored).
 
