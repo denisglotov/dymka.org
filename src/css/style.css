@@ -814,3 +814,46 @@ a.app-btn-github:hover .app-btn-icon {
   outline: 2px solid var(--accent-amber);
   outline-offset: 2px;
 }
+
+/* Game loading overlay (game pages) */
+.game-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 1400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  background: #0b1118;
+  transition: opacity 0.4s ease;
+}
+
+.game-loading.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.game-loading-spinner {
+  width: 52px;
+  height: 52px;
+  border: 5px solid rgba(255, 255, 255, 0.15);
+  border-top-color: var(--accent-amber);
+  border-radius: 50%;
+  animation: game-loading-spin 0.8s linear infinite;
+}
+
+.game-loading-text {
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+@keyframes game-loading-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

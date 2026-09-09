@@ -110,4 +110,28 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('fullscreenchange', syncFullscreenButton);
     document.addEventListener('webkitfullscreenchange', syncFullscreenButton);
   }
+
+  // Game loading overlay (game pages)
+  const gameFrame = document.getElementById('game-frame');
+  const gameLoading = document.getElementById('game-loading');
+
+  if (gameFrame && gameLoading) {
+    const hideGameLoading = () => {
+      if (gameLoading.dataset.state === 'hidden') return;
+      gameLoading.dataset.state = 'hidden';
+      gameLoading.classList.add('hidden');
+      // Remove from view after the fade-out transition completes
+      setTimeout(() => {
+        gameLoading.style.display = 'none';
+      }, 500);
+    };
+
+    if (gameFrame.complete) {
+      hideGameLoading();
+    } else {
+      gameFrame.addEventListener('load', hideGameLoading);
+      // Fallback so the page is never left permanently covered
+      setTimeout(hideGameLoading, 15000);
+    }
+  }
 });
