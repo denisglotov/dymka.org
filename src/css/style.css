@@ -781,3 +781,36 @@ a.app-btn-github:hover .app-btn-icon {
     text-align: left;
   }
 }
+
+/* Fullscreen toggle button (game pages) */
+.fs-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: #ffffff;
+  background: rgba(11, 17, 24, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: var(--transition);
+}
+
+.fs-toggle:hover {
+  background: rgba(11, 17, 24, 0.8);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.fs-toggle:focus-visible {
+  outline: 2px solid var(--accent-amber);
+  outline-offset: 2px;
+}

@@ -66,4 +66,48 @@ document.addEventListener('DOMContentLoaded', () => {
       cookieBanner.classList.remove('show');
     });
   }
+
+  // Fullscreen toggle (game pages)
+  const fullscreenToggle = document.getElementById('fs-toggle');
+
+  if (fullscreenToggle) {
+    const getFullscreenElement = () =>
+      document.fullscreenElement || document.webkitFullscreenElement || null;
+    const isFullscreen = () => Boolean(getFullscreenElement());
+
+    const syncFullscreenButton = () => {
+      const active = isFullscreen();
+      fullscreenToggle.textContent = active ? '✕' : '⛶';
+      fullscreenToggle.title = active ? 'Exit fullscreen' : 'Enter fullscreen';
+      fullscreenToggle.setAttribute('aria-label', fullscreenToggle.title);
+      fullscreenToggle.setAttribute('aria-pressed', String(active));
+    };
+
+    const requestFullscreen = (element) => {
+      if (element.requestFullscreen) return element.requestFullscreen();
+      if (element.webkitRequestFullscreen) return element.webkitRequestFullscreen();
+      throw new Error('Fullscreen is not supported');
+    };
+
+    const exitFullscreen = () => {
+      if (document.exitFullscreen) return document.exitFullscreen();
+      if (document.webkitExitFullscreen) return document.webkitExitFullscreen();
+      throw new Error('Fullscreen is not supported');
+    };
+
+    fullscreenToggle.addEventListener('click', () => {
+      try {
+        const togglePromise = isFullscreen()
+          ? exitFullscreen()
+          : requestFullscreen(document.documentElement);
+        // Browsers reject on ESC or missing gesture — ignore those errors
+        Promise.resolve(togglePromise).catch(() => {});
+      } catch (e) {
+        // Fullscreen not supported; ignore
+      }
+    });
+
+    document.addEventListener('fullscreenchange', syncFullscreenButton);
+    document.addEventListener('webkitfullscreenchange', syncFullscreenButton);
+  }
 });
