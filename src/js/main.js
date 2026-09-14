@@ -21,23 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Cookie Consent Banner Logic
   const cookieBanner = document.getElementById('cookie-banner');
   const acceptCookiesBtn = document.getElementById('accept-cookies');
-  const declineCookiesBtn = document.getElementById('decline-cookies');
 
-  let currentConsent = localStorage.getItem('cookieConsent');
-  const consentDate = localStorage.getItem('cookieConsentDate');
-
-  // If declined, prompt again after 90 days (approx 3 months)
-  if (currentConsent === 'declined' && consentDate) {
-    const ninetyDays = 90 * 24 * 60 * 60 * 1000;
-    if (Date.now() - parseInt(consentDate, 10) > ninetyDays) {
-      localStorage.removeItem('cookieConsent');
-      localStorage.removeItem('cookieConsentDate');
-      currentConsent = null;
-    }
-  }
+  const currentConsent = localStorage.getItem('cookieConsent');
 
   if (cookieBanner && !currentConsent) {
-    // Show banner if no valid consent choice is present
+    // Show banner if not yet acknowledged
     setTimeout(() => {
       cookieBanner.classList.add('show');
     }, 500);
@@ -46,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (acceptCookiesBtn) {
     acceptCookiesBtn.addEventListener('click', () => {
       localStorage.setItem('cookieConsent', 'accepted');
-      // Clear any previous decline date
       localStorage.removeItem('cookieConsentDate');
       cookieBanner.classList.remove('show');
 
@@ -56,14 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
           analytics_storage: 'granted',
         });
       }
-    });
-  }
-
-  if (declineCookiesBtn) {
-    declineCookiesBtn.addEventListener('click', () => {
-      localStorage.setItem('cookieConsent', 'declined');
-      localStorage.setItem('cookieConsentDate', Date.now().toString());
-      cookieBanner.classList.remove('show');
     });
   }
 
