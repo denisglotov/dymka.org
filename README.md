@@ -6,7 +6,7 @@ Official website for **Dymka** hosted on GitHub Pages for [dymka.org](https://dy
 
 - **`src/`**: Source files and templates (`_includes/`, `_layouts/`, `css/`, `js/`, and HTML pages).
 - **`public/`**: Raw static assets copied verbatim to the build output (`CNAME`, `robots.txt`,
-  `sitemap.xml`, `assets/`, sub-apps like `biomass/app/`).
+  `sitemap.xml`, `assets/`).
 - **`scripts/`**: Node.js build scripts.
 - **`_site/`**: Generated static output ready for production deployment (git-ignored).
 
@@ -49,4 +49,6 @@ npm run format
 
 ## 🚀 Deployment
 
-The site is automatically built and deployed to GitHub Pages on every push to `master` via GitHub Actions (`.github/workflows/deploy.yml`). Only the compiled static output in `_site/` is published.
+The site is automatically built and deployed to GitHub Pages on every push to `master`
+via GitHub Actions (`.github/workflows/deploy.yml`). Only the compiled static output in
+`_site/` is published.
